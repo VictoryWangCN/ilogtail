@@ -70,12 +70,12 @@ func (k *K8sEnv) ExecOnLogtail(command string) (string, error) {
 	var pods *corev1.PodList
 	var err error
 	if k.deployType == "daemonset" {
-		pods, err = k.daemonsetController.GetDaemonSetPods("logtail-ds", "kube-system")
+		pods, err = k.daemonsetController.GetDaemonSetPods("loongcollector-ds", "loongcollector")
 		if err != nil {
 			return "", err
 		}
 	} else if k.deployType == "deployment" {
-		pods, err = k.deploymentController.GetRunningDeploymentPods("cluster-agent", "loong-collector")
+		pods, err = k.deploymentController.GetRunningDeploymentPods("loongcollector-cluster", "loongcollector")
 		if err != nil {
 			return "", err
 		}

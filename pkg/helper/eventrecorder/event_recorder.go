@@ -146,14 +146,14 @@ func (e *EventRecorder) SendErrorEventWithAnnotation(object runtime.Object, anno
 }
 
 func (e *EventRecorder) GetObject() runtime.Object {
-	currPodName := "logtail-ds"
+	currPodName := "loongcollector-ds"
 	if len(podName) > 0 {
 		currPodName = podName
 	} else if len(nodeIP) > 0 {
 		currPodName = currPodName + "-" + nodeIP
 	}
 
-	currPodNamespace := "kube-system"
+	currPodNamespace := "loongcollector"
 	if len(podNamespace) > 0 {
 		currPodNamespace = podNamespace
 	}
